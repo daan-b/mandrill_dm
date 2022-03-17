@@ -13,8 +13,6 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.required_ruby_version = '>= 2.0'
 
-  s.post_install_message = File.read("MIGRATE") if File.exist?("MIGRATE")
-
   s.add_dependency 'mail', '>= 2.6'
   s.add_dependency 'mandrill-api-json', '~> 1.0.54'
 
