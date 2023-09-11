@@ -57,9 +57,14 @@ module MandrillDm
     end
 
     def headers
-      mail.header_fields.reduce({}) do |acc, field|
+      hash = mail.header_fields.reduce({}) do |acc, field|
         acc.merge(field.name => field.value)
       end
+
+      # Force Mandrill to use the template subject
+      hash.delete('Subject') if hash['Subject'].blank?
+      
+      hash
     end
 
     def html
